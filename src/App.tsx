@@ -3,20 +3,20 @@ import { Switch, Route, Router } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@mui/styles';
 import { StyledEngineProvider } from '@mui/material/styles';
 
-import Signin from './components/Signin';
+import Posts from './components/Posts';
 
 const generateClassName = createGenerateClassName({
-  productionPrefix: 'au',
+  productionPrefix: 'cms',
 });
 
-const App = ({ history, onSignIn }: any) => (
+const App = ({ history, userToken }: any) => (
   <div>
     <StyledEngineProvider injectFirst>
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route path="/cms">
-              <Signin onSignIn={onSignIn} />
+            <Route path="/cms/posts">
+              <Posts />
             </Route>
           </Switch>
         </Router>
