@@ -12,7 +12,14 @@
     "max-nesting-depth": [2, {
       "ignore": ["pseudo-classes"]
     }],
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
+
   },
   "ignoreFiles": ["**/*.ts", "**/*.tsx"]
 }

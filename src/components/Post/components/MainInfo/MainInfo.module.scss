@@ -1,0 +1,6 @@
+.editor-wrap {
+  :global .ck-content {
+    max-height: 900px;
+    overflow-y: auto;
+  }
+}

@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CircularProgress from '@mui/material/CircularProgress';
 import EditIcon from '@mui/icons-material/Edit';
+import { Link } from 'react-router-dom';
 
 import { getPosts } from '../../services/getPosts';
 import { Post } from '../../types/post';
@@ -50,17 +51,19 @@ const Posts: FC = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {posts.map((post) => (
-                <TableRow key={post.id}>
+              {posts.map(({ id, user, title }) => (
+                <TableRow key={id}>
                   <TableCell component="th" scope="row">
-                    {post.id}
+                    {id}
                   </TableCell>
-                  <TableCell>{post.userId}</TableCell>
-                  <TableCell>{post.title}</TableCell>
+                  <TableCell>{user}</TableCell>
+                  <TableCell>{title}</TableCell>
                   <TableCell align="right">
-                    <IconButton>
-                      <EditIcon />
-                    </IconButton>
+                    <Link to={`/cms/posts/${id}`} className={classes.link}>
+                      <IconButton>
+                        <EditIcon />
+                      </IconButton>
+                    </Link>
                   </TableCell>
                 </TableRow>
               ))}
